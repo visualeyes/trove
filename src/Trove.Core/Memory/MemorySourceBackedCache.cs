@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace Trove.Core.Memory {
-    internal class MemoryKeyValueCache<V> : ISourceBackedCache<V>, IMemoryKeyValueCache where V : class {
+    internal class MemoryKeyValueCache<V> : ISourceBackedCache<V> where V : class {
         private readonly static ConcurrentDictionary<string, V> cache = new ConcurrentDictionary<string, V>();
 
         public async Task<V> GetAsync(string key, IKeyValueSource<V> provider) {

@@ -42,13 +42,14 @@
   <ItemGroup>
     <Compile Include="ICacheProviderConfig.cs" />
     <Compile Include="ICacheProviderFactory.cs" />
+    <Compile Include="Memory\MemoryProviderConfig.cs" />
+    <Compile Include="Memory\TroveCacheFactoryExtensions.cs" />
     <Compile Include="TroveCacheFactory.cs" />
     <Compile Include="ITroveCacheFactory.cs" />
     <Compile Include="ISourceBackedCache.cs" />
     <Compile Include="IKeyValueSource.cs" />
-    <Compile Include="Memory\IMemoryKeyValueCache.cs" />
-    <Compile Include="Memory\MemoryCacheStore.cs" />
-    <Compile Include="Memory\MemoryKeyValueCache.cs" />
+    <Compile Include="Memory\MemoryCacheProviderFactory.cs" />
+    <Compile Include="Memory\MemorySourceBackedCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

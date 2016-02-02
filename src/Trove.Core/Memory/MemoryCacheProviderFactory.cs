@@ -7,8 +7,8 @@ using System.Threading;
 using System.Threading.Tasks;
 
 namespace Trove.Core.Memory {
-    internal class MemoryCacheStore : ICacheProviderFactory {
-        private static ConcurrentDictionary<string, IMemoryKeyValueCache> store = new ConcurrentDictionary<string, IMemoryKeyValueCache>(StringComparer.OrdinalIgnoreCase);       
+    internal class MemoryCacheProviderFactory : ICacheProviderFactory {
+        private static ConcurrentDictionary<string, object> store = new ConcurrentDictionary<string, object>(StringComparer.OrdinalIgnoreCase);       
         
         public ISourceBackedCache<V> GetSourceBackedCache<V>(string name) where V : class {
             var cache = store.GetOrAdd(name, (key) => new MemoryKeyValueCache<V>());
