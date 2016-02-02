@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trove.Core", "Trove.Core\Trove.Core.csproj", "{58B5746C-104D-4B78-BFCB-C618A2666074}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trove.Redis", "Trove.Reddis\Trove.Redis.csproj", "{A54F31F4-B4EC-49AB-BFD8-659A20DF402C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trove.Tests", "Trove.Tests\Trove.Tests.csproj", "{1CE5EC40-AEB4-4565-852B-79C0C0E99E72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trove.Memcached", "Trove.Memcached\Trove.Memcached.csproj", "{8AB7FD0E-710F-433A-A510-393F43E36504}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58B5746C-104D-4B78-BFCB-C618A2666074}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B5746C-104D-4B78-BFCB-C618A2666074}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B5746C-104D-4B78-BFCB-C618A2666074}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B5746C-104D-4B78-BFCB-C618A2666074}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A54F31F4-B4EC-49AB-BFD8-659A20DF402C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A54F31F4-B4EC-49AB-BFD8-659A20DF402C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A54F31F4-B4EC-49AB-BFD8-659A20DF402C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A54F31F4-B4EC-49AB-BFD8-659A20DF402C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CE5EC40-AEB4-4565-852B-79C0C0E99E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CE5EC40-AEB4-4565-852B-79C0C0E99E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CE5EC40-AEB4-4565-852B-79C0C0E99E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CE5EC40-AEB4-4565-852B-79C0C0E99E72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AB7FD0E-710F-433A-A510-393F43E36504}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AB7FD0E-710F-433A-A510-393F43E36504}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AB7FD0E-710F-433A-A510-393F43E36504}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AB7FD0E-710F-433A-A510-393F43E36504}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
