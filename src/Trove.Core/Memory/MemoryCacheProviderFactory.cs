@@ -10,19 +10,21 @@ namespace Trove.Core.Memory {
     internal class MemoryCacheProviderFactory : ICacheProviderFactory {
         private static ConcurrentDictionary<string, object> store = new ConcurrentDictionary<string, object>(StringComparer.OrdinalIgnoreCase);       
         
-        public ISourceBackedCache<V> GetSourceBackedCache<V>(string name) where V : class {
-            var cache = store.GetOrAdd(name, (key) => new MemoryKeyValueCache<V>());
+        public ICacheProvider<V> GetCacheProvider<V>(string name) where V : class {
+            Contract.NotNullOrEmpty(name, nameof(name));
 
-            if (!(cache is MemoryKeyValueCache<V>)) {
+            var cache = store.GetOrAdd(name, (key) => new MemoryCacheProvider<V>());
+
+            if (!(cache is MemoryCacheProvider<V>)) {
                 throw new ApplicationException(
                     String.Format(
                         "Unexpected cache type. Cache {0} is of type {1} when {2} was expected",
-                        name, cache?.GetType().FullName, typeof(MemoryKeyValueCache<V>).FullName
+                        name, cache?.GetType().FullName, typeof(MemoryCacheProvider<V>).FullName
                     )
                 );
             }
 
-            return cache as MemoryKeyValueCache<V>;
+            return cache as MemoryCacheProvider<V>;
         }
     }
 }

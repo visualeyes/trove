@@ -8,6 +8,8 @@ using Trove.Core;
 namespace Trove.Core.Memory {
     public static class TroveCacheFactoryExtensions {
         public static ITroveCacheFactory RegisterMemoryCacheFactory(this ITroveCacheFactory factory) {
+            Contract.NotNull(factory, nameof(factory));
+
             factory.RegisterFactory<MemoryProviderConfig>((config) => new MemoryCacheProviderFactory());
             return factory;
         }

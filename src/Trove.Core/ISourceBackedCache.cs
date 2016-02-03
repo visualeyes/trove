@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace Trove.Core {
     public interface ISourceBackedCache<V> where V : class {
 
-        Task<V> GetAsync(string key, IKeyValueSource<V> provider);
+        Task<V> GetAsync(string key, IKeyValueSource<V> provider, ProviderDefaultValueHandling defaultValueHandling = ProviderDefaultValueHandling.Throw);
         
         /// <summary>
         /// Loads entire cache from the source
         /// </summary>
         /// <param name="provider"></param>
         /// <returns></returns>
-        Task LoadFromProviderAsync(IKeyValueSource<V> provider);
+        Task LoadFromProviderAsync(IKeyValueSource<V> provider, bool flush = true);
     }
 }

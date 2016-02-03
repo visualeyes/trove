@@ -8,15 +8,19 @@ using Trove.Redis;
 
 namespace Trove.Redis {
     internal class RedisCacheProviderFactory : ICacheProviderFactory {
-        private readonly RedisProviderConfig config;
+        private readonly IRedisProviderConfig config;
 
-        public RedisCacheProviderFactory(RedisProviderConfig config) {
+        public RedisCacheProviderFactory(IRedisProviderConfig config) {
+            Contract.NotNull(config, nameof(config));
+
             this.config = config;
         }
 
-        public ISourceBackedCache<V> GetSourceBackedCache<V>(string cacheName) where V : class {
+        public ICacheProvider<V> GetCacheProvider<V>(string cacheName) where V : class {
+            Contract.NotNullOrEmpty(cacheName, nameof(cacheName));
+
             var db = config.Redis.GetDatabase();
-            return new RedisKeyValueCache<V>(db, cacheName);
+            return new RedisCacheProvider<V>(db, cacheName);
         }
     }
 }

@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Trove.Core {
-    public interface ICacheProviderFactory {
-        ICacheProvider<V> GetCacheProvider<V>(string name) where V : class;
+    public enum ProviderDefaultValueHandling {
+        Store = 0,
+        NoStore = 1,
+        Throw = 2
     }
 }

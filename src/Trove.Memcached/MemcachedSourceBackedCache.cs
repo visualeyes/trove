@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Trove.Core;
 
 namespace Trove.Memcached {
-    internal class MemcachedSourceBackedCache<V> : ISourceBackedCache<V> where V : class {
+    internal class MemcachedSourceBackedCache<V> : ICacheProvider<V> where V : class {
         private readonly IMemcachedClient client;
         private readonly string cacheName;
 
@@ -17,31 +17,44 @@ namespace Trove.Memcached {
             this.cacheName = cacheName;
         }
 
-        public async Task<V> GetAsync(string key, IKeyValueSource<V> provider) {
-            var item = client.Get<V>(GetMemcacheKey(key));
-
-            if (item == null) {
-                item = await provider.GetAsync(key);
-                this.Store(key, item);
-            }
-
-            return item;
+        public bool SupportsFlushing {
+            get { return false; }
         }
 
-        public async Task LoadFromProviderAsync(IKeyValueSource<V> provider) {
-            var allItems = await provider.GetAllAsync();
-
-            foreach (var item in allItems) {
-                this.Store(item.Key, item.Value);
-            }
+        public Task<V> GetAsync(string key) {
+            string cachekey = GetMemcacheKey(key);
+            var item = client.Get<V>(cachekey);
+            return Task.FromResult(item);
         }
 
-        private void Store(string key, V item) {
+        public Task SetAsync(string key, V value) {
+            this.SetItem(key, value);
+            return Task.FromResult(0);
+        }
+
+        public Task SetAsync(IDictionary<string, V> keyValues, bool flush = false) {
+            if(flush) {
+                throw new NotImplementedException();
+            }
+            
+            foreach (var item in keyValues) {
+                this.SetItem(item.Key, item.Value);
+            }
+
+            return Task.FromResult(0);
+        }
+
+        public Task FlushAsync() {
+            throw new NotImplementedException();
+        }
+        
+        private void SetItem(string key, V item) {
             client.Store(StoreMode.Set, GetMemcacheKey(key), item);
         }
 
         private string GetMemcacheKey(string key) {
             return String.Format("{0}-{1}", cacheName, key);
         }
+
     }
 }

@@ -8,6 +8,8 @@ using Trove.Core;
 namespace Trove.Redis {
     public static class TroveCacheFactoryExtensions {
         public static ITroveCacheFactory RegisterRedisCacheFactory(this ITroveCacheFactory factory) {
+            Contract.NotNull(factory, nameof(factory));
+
             factory.RegisterFactory<RedisProviderConfig>((config) => new RedisCacheProviderFactory(config));
             return factory;
         }

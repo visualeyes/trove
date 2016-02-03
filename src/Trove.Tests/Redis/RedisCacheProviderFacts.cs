@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Trove.Tests
-{
-    public class Class1
-    {
+namespace Trove.Tests.Redis {
+    public class RedisCacheProviderFacts {
     }
 }

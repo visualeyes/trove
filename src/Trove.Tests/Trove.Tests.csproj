@@ -33,6 +33,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Enyim.Caching, Version=2.13.0.0, Culture=neutral, PublicKeyToken=cec98615db04012e, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnyimMemcached.2.13\lib\net35\Enyim.Caching.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Moq, Version=4.2.1510.2205, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
+      <HintPath>..\packages\Moq.4.2.1510.2205\lib\net40\Moq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.0.316.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.0.488\lib\net45\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -60,7 +72,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Core\Memory\MemoryCacheProviderFacts.cs" />
+    <Compile Include="Core\Memory\MemoryCacheProviderFactoryFacts.cs" />
+    <Compile Include="Core\Memory\TroveCacheFactoryExtensionFacts.cs" />
+    <Compile Include="Core\SourceBackedCacheFacts.cs" />
+    <Compile Include="Core\TroveCacheFactoryFacts.cs" />
+    <Compile Include="Memcached\MemcachedCacheProviderFactoryFacts.cs" />
+    <Compile Include="Memcached\MemcachedProviderConfigFacts.cs" />
+    <Compile Include="Memcached\MemcachedCacheProviderFacts.cs" />
+    <Compile Include="Memcached\TroveCacheFactoryExtensionFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Redis\RedisCacheProviderFactoryFacts.cs" />
+    <Compile Include="Redis\RedisProviderConfigFacts.cs" />
+    <Compile Include="Redis\RedisCacheProviderFacts.cs" />
+    <Compile Include="Redis\TroveCacheFactoryExtensionFacts.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Trove.Core\Trove.Core.csproj">
@@ -78,6 +103,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

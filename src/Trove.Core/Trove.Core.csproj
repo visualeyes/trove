@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract.cs" />
+    <Compile Include="DefaultValueHandling.cs" />
+    <Compile Include="ICacheProvider.cs" />
+    <Compile Include="SourceBackedCache.cs" />
     <Compile Include="ICacheProviderConfig.cs" />
     <Compile Include="ICacheProviderFactory.cs" />
     <Compile Include="Memory\MemoryProviderConfig.cs" />
@@ -49,7 +53,7 @@
     <Compile Include="ISourceBackedCache.cs" />
     <Compile Include="IKeyValueSource.cs" />
     <Compile Include="Memory\MemoryCacheProviderFactory.cs" />
-    <Compile Include="Memory\MemorySourceBackedCache.cs" />
+    <Compile Include="Memory\MemoryCacheProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

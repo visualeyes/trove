@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 using Trove.Core;
 
 namespace Trove.Redis {
-    public class RedisProviderConfig : ICacheProviderConfig {
-        public RedisProviderConfig(ConnectionMultiplexer redis) {
+    public class RedisProviderConfig : ICacheProviderConfig, IRedisProviderConfig {
+        public RedisProviderConfig(IConnectionMultiplexer redis) {
+            Contract.NotNull(redis, nameof(redis));
+
             this.Redis = redis;
         }
 
-        public ConnectionMultiplexer Redis { get; private set; }
+        public IConnectionMultiplexer Redis { get; private set; }
     }
 }

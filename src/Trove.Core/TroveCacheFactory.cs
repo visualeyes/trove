@@ -11,7 +11,7 @@ namespace Trove.Core {
         private static ConcurrentDictionary<Type, Func<ICacheProviderConfig, ICacheProviderFactory>> keyValueFactoryCache = new ConcurrentDictionary<Type, Func<ICacheProviderConfig, ICacheProviderFactory>>();
 
         public ICacheProviderFactory GetCacheProviderFactory<T>(T config) where T : ICacheProviderConfig {
-            if (config == null) throw new ArgumentNullException(nameof(config));
+            Contract.NotNull(config, nameof(config));
 
             var configType = typeof(T); // this is what it was registered with - config.GetType() would get the implementation
 
@@ -27,7 +27,7 @@ namespace Trove.Core {
         }
 
         public void RegisterFactory<T>(Func<T, ICacheProviderFactory> providerFactory) where T : ICacheProviderConfig {
-            if (providerFactory == null) throw new ArgumentNullException(nameof(providerFactory));
+            Contract.NotNull(providerFactory, nameof(providerFactory));
 
             var interfaceFactory = providerFactory as Func<ICacheProviderConfig, ICacheProviderFactory>;
 
