@@ -71,7 +71,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Core\Memory\MemoryCacheProviderFacts.cs" />
     <Compile Include="Core\Memory\MemoryCacheProviderFactoryFacts.cs" />
     <Compile Include="Core\Memory\TroveCacheFactoryExtensionFacts.cs" />
